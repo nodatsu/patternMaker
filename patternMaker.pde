@@ -9,10 +9,6 @@ float objRotX, objRotY, objRotZ;  // オブジェクトの角度
 void setup() {
   // アプリケーションの設定
   size((int)winSize.x, (int)winSize.y, P3D); // ウィンドサイズ
-
-
-  // マウス処理の初期化
-  mouseInit();
   
   // カメラの追加
   camera = new Camera();
@@ -30,10 +26,6 @@ void setup() {
 
 void draw() {
   background(64, 64, 64);
-  translate(objPos.x, objPos.y, objPos.z);
-  rotateX(objRotX);
-  rotateY(objRotY);
-  rotateZ(objRotZ);
 
   // カメラの更新
   camera.update();
