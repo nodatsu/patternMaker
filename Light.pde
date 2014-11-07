@@ -1,5 +1,4 @@
 // ライトのクラス
-
 class Light {
   float  lightAR, lightAG, lightAB;  // 環境光の色
   float  lightPR, lightPG, lightPB;  // 点光源の色

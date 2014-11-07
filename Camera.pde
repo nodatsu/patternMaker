@@ -1,10 +1,8 @@
 // カメラのクラス
-
 class Camera {
-  // カメラのパラメータ
-  PVector cameraEye    = new PVector();  // カメラ位置
-  PVector cameraCenter = new PVector();  // 視野中心
-  PVector cameraUp     = new PVector();  // 上方向
+  PVector eye    = new PVector();
+  PVector center = new PVector();
+  PVector up     = new PVector();
 
   // コンストラクタ
   Camera() {
@@ -15,11 +13,11 @@ class Camera {
   void update() {
     // カメラの位置設定
     beginCamera();
-    perspective(PI/3.0, width * 1.0/height, cameraEye.z/10.0, cameraEye.z*10.0);
+    perspective(PI/3.0, width * 1.0/height, eye.z/10.0, eye.z*10.0);
 
-    camera(cameraEye.x, cameraEye.y, cameraEye.z,
-           cameraCenter.x, cameraCenter.y, cameraCenter.z,
-           cameraUp.x, cameraUp.y, cameraUp.z);
+    camera(eye.x, eye.y, eye.z,
+           center.x, center.y, center.z,
+           up.x, up.y, up.z);
     endCamera();
   }
   
@@ -27,8 +25,8 @@ class Camera {
   void reset()
   {
     // カメラの座標
-    cameraEye.set(0, 0, 5000);
-    cameraCenter.set(0, 0, 0);
-    cameraUp.set(0, 1, 0);
+    eye.set(0, 0, 5000);
+    center.set(0, 0, 0);
+    up.set(0, 1, 0);
   }
 }

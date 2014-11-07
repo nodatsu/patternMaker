@@ -2,7 +2,7 @@ PVector winSize = new PVector(800, 600);  // アプリケーションのウィ�
 
 Camera camera;    // カメラ
 Light  light;     // ライト
-Wall   wall;      // 壁面
+Plane  plane;     // 平面
 PVector objPos;   // オブジェクトの位置
 float objRotX, objRotY, objRotZ;  // オブジェクトの角度
 
@@ -15,7 +15,7 @@ void setup() {
   // ライトの追加
   light = new Light();
   // 地面の追加
-  wall = new Wall();
+  plane = new Plane();
 
   // オブジェクトの位置、角度
   objPos = new PVector(0, 0, 0);
@@ -40,7 +40,7 @@ void draw() {
   rotateY(objRotY);
   rotateZ(objRotZ);
 
-  wall.update();
+  plane.update();
 
   popMatrix();
 }

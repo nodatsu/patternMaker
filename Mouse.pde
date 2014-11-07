@@ -1,12 +1,11 @@
 void mouseDragged()
 {
-  // マウスの前位置と現在位置の差から移動、回転を決定
   if (mouseButton == LEFT) {
-    // オブジェクトの位置移動(X, Y方向)
-    objPos.x += mouseX - pmouseX;
-    objPos.y += mouseY - pmouseY;
+    // 移動
+    objPos.x += (mouseX - pmouseX) * PVector.dist(objPos, camera.eye) / 1000.0;
+    objPos.y += (mouseY - pmouseY) * PVector.dist(objPos, camera.eye) / 1000.0;
   } else {
-    // オブジェクトの回転(X, Y, Z方向)
+    // 回転
     if (keyPressed && keyCode == SHIFT) {
       objRotY += PI * (mouseX - pmouseX) / max(width, height);
     } else {
@@ -17,14 +16,7 @@ void mouseDragged()
 }
 
 void mouseWheel(MouseEvent ev) {
-//  float e = ev.getCount();
-//  println(e);
-  if (ev.getCount() > 0) {
-    // オブジェクトの位置移動(Z方向)
-    objPos.z += 500;
-  } else {
-    // オブジェクトの位置移動(Z方向)
-    objPos.z -= 500;
-  }
+  // ズーム
+  objPos.z += -500 * ev.getCount();
 }
 
