@@ -25,7 +25,7 @@ void setup() {
 }
 
 void draw() {
-  background(64, 64, 64);
+  background(128, 255, 255);
 
   // カメラの更新
   camera.update();
