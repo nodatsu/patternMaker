@@ -1,13 +1,13 @@
 // 地面のクラス
 class Plane {
-  float pSize;   // 平面の範囲
-  color pColor;  // 平面の色
-  int bNumU, bNumV;  // 建物の数
+  float pSize;
+  color pColor;
+  int bNumU, bNumV;  // 建物の数(行数、列数)
   Building[][] buildings;  // 建物群
 
   Plane () {
     pSize = 5000;
-    pColor = color(0, 64, 0);
+    pColor = color(128);
 
     bNumU = 40;
     bNumV = 40;

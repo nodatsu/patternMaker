@@ -1,23 +1,24 @@
-PVector winSize = new PVector(800, 600);  // アプリケーションのウィンドサイズ
+PVector winSize = new PVector(1600, 1000);  // アプリケーションのウィンドサイズ
 
-Camera camera;    // カメラ
-Light  light;     // ライト
-Plane  plane;     // 平面
-PVector objPos;   // オブジェクトの位置
-float objRotX, objRotY, objRotZ;  // オブジェクトの角度
+int mode;  // 表示モード
+
+Camera camera;
+Light  light;
+Plane  plane;
+PVector objPos;
+float objRotX, objRotY, objRotZ;
 
 void setup() {
-  // アプリケーションの設定
-  size((int)winSize.x, (int)winSize.y, P3D); // ウィンドサイズ
+  size((int)winSize.x, (int)winSize.y, P3D);
   
-  // カメラの追加
+  // 表示モード
+  //   ライト設定、建物のストロークあり・なし
+  mode = 0;
+  
   camera = new Camera();
-  // ライトの追加
   light = new Light();
-  // 地面の追加
   plane = new Plane();
 
-  // オブジェクトの位置、角度
   objPos = new PVector(0, 0, 0);
   objRotX = 0;
   objRotY = 0;
@@ -26,14 +27,9 @@ void setup() {
 
 void draw() {
   background(128, 255, 255);
-
-  // カメラの更新
   camera.update();
-
-  // 光源の更新
   light.update();
 
-  // オブジェクトの更新
   pushMatrix();
   translate(objPos.x, objPos.y, objPos.z);
   rotateX(objRotX);

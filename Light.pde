@@ -1,15 +1,21 @@
 // ライトのクラス
 class Light {
-  float  aR, aG, aB;
-  
+
   Light () {
-    aR = 255;
-    aG = 255;
-    aB = 255;
   }
-  
+
   // 更新
   void update() {
-    ambientLight(aR, aG, aB);
+    switch (mode) {
+    case 0:
+    case 1:
+      ambientLight(255, 255, 255);
+      break;
+    case 2:
+    case 3:
+      ambientLight(0, 0, 0);
+      directionalLight(255, 255, 255, 0, 0, -1);
+      break;
+    }
   }
 }
